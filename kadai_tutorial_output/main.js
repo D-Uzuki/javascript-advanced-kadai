@@ -2,6 +2,7 @@
 let untyped = '';
 let typed = '';
 let score = 0;
+let typedcount = 0;
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById('untyped');
@@ -9,6 +10,7 @@ const typedfield = document.getElementById('typed');
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
+const truetyped = document.getElementById('truetyped');
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -64,6 +66,12 @@ const keyPress = e => {
   untyped = untyped.substring(1);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
+
+  
+  // タイマー部分のHTML要素（p要素）を取得する
+  let truetypedcount = truetyped.textContent;
+  typedcount++; 
+  truetyped.textContent = typedcount;
 
    // テキストがなくなったら新しいテキストを表示
    if(untyped === '') {
